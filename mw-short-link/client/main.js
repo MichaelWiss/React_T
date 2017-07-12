@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
+import { Tracker } from 'meteor/tracker';
 
 import Signup from '../imports/ui/Signup';
 import Link from '../imports/ui/Link';
@@ -18,6 +19,13 @@ const routes = (
        <Route path="*" component={NotFound}/>
      </Router>
 );
+
+window.browserHistory = browserHistory;
+Tracker.autorun(() => {
+  const isAuthenticated = !!Meteor.userId();
+  const pathname = browserHistory.getHistory.getCurrentLocation().pathname;
+  console.log('isAuthenticated', isAuthenticated);
+});
 
 
 
