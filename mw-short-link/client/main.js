@@ -27,8 +27,13 @@ Tracker.autorun(() => {
   const isAuthenticated = !!Meteor.userId();
   const pathname = browserHistory.getCurrentLocation().pathname;
   const isUnauthenticatedPage = unathenticatedPages.includes(pathname);
+  const isAuthenticatedPage = authenticatedPages.includes(pathname);
 
-  console.log('isAuthenticated', isAuthenticated);
+  if (isunathenticatedPage && isAuthenticated) {
+  	browserHistory.push('/links');
+  } else if (isAuthenticatedPage && !isAuthenticated) {
+  	browserHistory.push('/');
+  }
 });
 
 
