@@ -8,6 +8,12 @@ export default class Login extends React.Component {
           error: ''
        };
 	}
+	onSubmit(e) {
+		e.preventDefault();
+
+		let email = this.refs.email.value.trim();
+		let password = this.refs.password.value.trim();
+	}
 	render() {
 		return (
 			<div>
