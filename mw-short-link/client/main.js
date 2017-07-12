@@ -11,6 +11,8 @@ import Login from '../imports/ui/Login';
 
 window.browserHistory = browserHistory;
 
+const unathenticatedPages = ['/', '/signup'];
+const authenticatedPages = ['/links'];
 const routes = (
      <Router history={browserHistory}>
        <Route path="/" component={Login}/>
@@ -20,10 +22,12 @@ const routes = (
      </Router>
 );
 
-window.browserHistory = browserHistory;
+
 Tracker.autorun(() => {
   const isAuthenticated = !!Meteor.userId();
-  const pathname = browserHistory.getHistory.getCurrentLocation().pathname;
+  const pathname = browserHistory.getCurrentLocation().pathname;
+  const isUnauthenticatedPage = unathenticatedPages.includes(pathname);
+
   console.log('isAuthenticated', isAuthenticated);
 });
 
