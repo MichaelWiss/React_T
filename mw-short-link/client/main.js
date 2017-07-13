@@ -13,10 +13,15 @@ window.browserHistory = browserHistory;
 
 const unathenticatedPages = ['/', '/signup'];
 const authenticatedPages = ['/links'];
+const onEnterPublicPage = () => {
+	  if (Meteor.userId()) {
+      browserHistory.push('/links');
+	  }
+};
 const routes = (
      <Router history={browserHistory}>
-       <Route path="/" component={Login} onEnter={}/>
-       <Route path="/signup" component={Signup}/>
+       <Route path="/" component={Login} onEnter={onEnterPublicPage}/>
+       <Route path="/signup" component={Signup} onEnter={onEnterPublicPage}/>
        <Route path="/links" component={Link}/>
        <Route path="*" component={NotFound}/>
      </Router>
