@@ -15,12 +15,12 @@ const unathenticatedPages = ['/', '/signup'];
 const authenticatedPages = ['/links'];
 const onEnterPublicPage = () => {
 	  if (Meteor.userId()) {
-      browserHistory.push('/links');
+      browserHistory.replace('/links');
 	  }
 };
 const onEnterPrivatePage = () => {
 	if (!Meteor.userId()) {
-		browserHistory.push('/');
+		browserHistory.replace('/');
    }
 };
 const routes = (
@@ -40,9 +40,9 @@ Tracker.autorun(() => {
   const isAuthenticatedPage = authenticatedPages.includes(pathname);
 
   if (isUnauthenticatedPage && isAuthenticated) {
-  	browserHistory.push('/links');
+  	browserHistory.replace('/links');
   } else if (isAuthenticatedPage && !isAuthenticated) {
-  	browserHistory.push('/');
+  	browserHistory.replace('/');
   }
 });
 
