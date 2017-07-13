@@ -15,7 +15,7 @@ const unathenticatedPages = ['/', '/signup'];
 const authenticatedPages = ['/links'];
 const routes = (
      <Router history={browserHistory}>
-       <Route path="/" component={Login}/>
+       <Route path="/" component={Login} onEnter={}/>
        <Route path="/signup" component={Signup}/>
        <Route path="/links" component={Link}/>
        <Route path="*" component={NotFound}/>
