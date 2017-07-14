@@ -32,12 +32,19 @@ Meteor.startup(() => {
        	  min: 0
        },
        email: {
+       	type: String,
        	regEx: SimpleSchema.RegEx.Email
        }
  });
 
-  petSchema.validate({
-     age: 2,
-     contactNumber: '1234'
+  employeeSchema.validate({
+       name: 'Mike',
+       hourlyWage: 45,
+       email: 'mike@email.com'
   });
+
+  // petSchema.validate({
+  //    age: 2,
+  //    contactNumber: '1234'
+
 });
