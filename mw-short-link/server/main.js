@@ -4,9 +4,20 @@ import { Accounts } from 'meteor/accounts-base';
 
 Meteor.startup(() => {
   // code to run on server at startup
+ 
+
+
   Accounts.validateNewUser((user) => {
-       console.log('this is the user', user);
-       return true;
+  	 const email = user.emails[o].address;
+      
+     new SimpleSchema({
+     	email: {
+           type: String,
+           regEx: SimpleSchema.RegEx.Email
+     	}
+  	}).validate({ email })
+
+     return true;
   });
 
 
