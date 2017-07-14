@@ -18,6 +18,7 @@ Meteor.startup(() => {
  });
 
   petSchema.validate({
-     name: 'Andrew'
+     name: 'Andrew',
+     age: -3
   });
 });
