@@ -9,16 +9,21 @@ Meteor.startup(() => {
   	name: {
   		type: String,
   		min: 1,
-  		max: 200
+  		max: 200,
+  		optional: true
   	},
   	age: {
   		type: Number,
   		min: 0
+  	},
+  	contactNumber: {
+  		type: String,
+  		optional: true,
+  		regex: SimpleSchema.RegEx.Phone
   	}
  });
 
   petSchema.validate({
-     name: 'Andrew',
-     age: -3
+     age: 2,
   });
 });
