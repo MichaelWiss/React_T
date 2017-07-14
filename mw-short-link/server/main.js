@@ -8,7 +8,7 @@ Meteor.startup(() => {
 
 
   Accounts.validateNewUser((user) => {
-  	 const email = user.emails[o].address;
+  	 const email = user.emails[0].address;
       
      new SimpleSchema({
      	email: {
@@ -19,6 +19,12 @@ Meteor.startup(() => {
 
      return true;
   });
+
+  try {
+    throw new Meteor.Error(400, 'Please enter a valid email');
+  } catch (e) {
+    console.log(e);
+  }
 
 
   // const petSchema = new SimpleSchema({
