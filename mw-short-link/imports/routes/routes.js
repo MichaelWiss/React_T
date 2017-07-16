@@ -1,8 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
-import { Tracker } from 'meteor/tracker';
+
 
 import Signup from '../ui/Signup';
 import Link from '../ui/Link';
@@ -23,7 +22,7 @@ const onEnterPrivatePage = () => {
 		browserHistory.replace('/');
    }
 };
-const omAuthChange = (isAuthenticated) => {
+export const onAuthChange = (isAuthenticated) => {
    const pathname = browserHistory.getCurrentLocation().pathname;
   const isUnauthenticatedPage = unathenticatedPages.includes(pathname);
   const isAuthenticatedPage = authenticatedPages.includes(pathname);
@@ -34,7 +33,7 @@ const omAuthChange = (isAuthenticated) => {
     browserHistory.replace('/');
   }
 };
-const routes = (
+export const routes = (
      <Router history={browserHistory}>
        <Route path="/" component={Login} onEnter={onEnterPublicPage}/>
        <Route path="/signup" component={Signup} onEnter={onEnterPublicPage}/>
