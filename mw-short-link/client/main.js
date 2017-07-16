@@ -35,15 +35,7 @@ const routes = (
 
 Tracker.autorun(() => {
   const isAuthenticated = !!Meteor.userId();
-  const pathname = browserHistory.getCurrentLocation().pathname;
-  const isUnauthenticatedPage = unathenticatedPages.includes(pathname);
-  const isAuthenticatedPage = authenticatedPages.includes(pathname);
-
-  if (isUnauthenticatedPage && isAuthenticated) {
-  	browserHistory.replace('/links');
-  } else if (isAuthenticatedPage && !isAuthenticated) {
-  	browserHistory.replace('/');
-  }
+ 
 });
 
 
