@@ -11,6 +11,11 @@ Tracker.autorun(() => {
   onAuthChange(isAuthenticated);
 });
 
+Tracker.autorun(() => {
+	const links = Links.find;
+	console.log(links);
+})
+
 
 
 
