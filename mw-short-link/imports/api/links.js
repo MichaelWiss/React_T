@@ -1,3 +1,3 @@
-import { mongo } from 'meteor/mongo';
+import { Mongo } from 'meteor/mongo';
 
 new Mongo.Collection('links');
