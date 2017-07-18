@@ -11,6 +11,10 @@ export default class Link extends React.Component {
           <div>
           <h1>Your Links</h1>
           <button onClick={this.onLogout.bind(this)}>Logout</button>
+          <p>Add Link</p>
+          <form>
+             <input type="text" ref="url" placeholder="URL"/>
+          </form>
           </div>
 		);
 	}
