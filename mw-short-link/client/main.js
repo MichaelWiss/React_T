@@ -12,9 +12,9 @@ Tracker.autorun(() => {
 });
 
 Tracker.autorun(() => {
-	const links = Links.find;
-	console.log(links);
-})
+	const links = Links.find().fetch();
+	console.log('New Links', links);
+});
 
 
 
