@@ -12,7 +12,7 @@ export default class LinksList extends React.Component {
 	}
 	componentDidMount() {
 		console.log('componentDidMount LinksList');
-		Tracker.autorun(() => {
+		this.linksTracker = Tracker.autorun(() => {
 	      const links = Links.find().fetch();
 	      this.setState({ links });
       });
