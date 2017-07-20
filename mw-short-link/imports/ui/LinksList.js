@@ -21,7 +21,9 @@ export default class LinksList extends React.Component {
 		console.log('componentWillUnmount LinksList');
 	}
 	renderLinksListItems() {
-		links.map
+		return this.state.links.map((link) => {
+			return <p>{link.url}</p>
+		});
 	}
 	render() {
 		return (
