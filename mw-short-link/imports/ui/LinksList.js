@@ -1,4 +1,7 @@
 import React from 'react';
+import { Tracker } from 'meteor/tracker';
+
+import { Links } from '../api/links';
 
 export default class LinksList extends React.Component {
 	constructor(props) {
@@ -9,6 +12,10 @@ export default class LinksList extends React.Component {
 	}
 	componentDidMount() {
 		console.log('componentDidMount LinksList');
+		Tracker.autorun(() => {
+	      const links = Links.find().fetch();
+	      this.setState({ links });
+      });
 	}
 	componentWillUnmount() {
 		console.log('componentWillUnmount LinksList');
