@@ -20,11 +20,16 @@ export default class LinksList extends React.Component {
 	componentWillUnmount() {
 		console.log('componentWillUnmount LinksList');
 	}
+	renderLinksListItems() {
+		links.map
+	}
 	render() {
 		return (
           <div>
             <p>Links List</p>
-            
+            <div>
+               {this.renderLinksListItems()}
+            </div>
           </div>
 		);
 	}
