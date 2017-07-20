@@ -22,7 +22,7 @@ export default class LinksList extends React.Component {
 	}
 	renderLinksListItems() {
 		return this.state.links.map((link) => {
-			return <p>{link.url}</p>
+			return <p key={link._id}>{link.url}</p>
 		});
 	}
 	render() {
