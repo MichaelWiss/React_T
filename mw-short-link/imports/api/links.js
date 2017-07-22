@@ -1,6 +1,11 @@
-import { Meteor } from 'meteor';
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 
 export const Links = new Mongo.Collection('links');
 
-Meteor.publish
+
+if (Meteor.isServer) {
+    Meteor.publish('links', => {
+
+    });
+}
