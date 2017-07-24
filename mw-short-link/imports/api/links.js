@@ -9,3 +9,11 @@ if (Meteor.isServer) {
       return Links.find({ userId: this.userId });
     });
 }
+
+Meteor.methods({
+   greetUser: function () {
+   	  console.log('greetUser is running');
+
+   	  return 'Hello user';
+   }
+});
