@@ -11,9 +11,13 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-   greetUser(name= 'User') {
+   greetUser(name) {
    	  console.log('greetUser is running');
 
-   	  return `Hello ${name}`;
+   	  if (!name) {
+   	  	throw new Meteor.Error('invalid-arguments', 'Name is required');
+   	  }
+
+   	  return `Hello ${name}!`;
    }
 });
