@@ -19,5 +19,9 @@ Meteor.methods({
    	  }
 
    	  return `Hello ${name}!`;
+   },
+   addNumbers() {
+   	
    }
 });
+
