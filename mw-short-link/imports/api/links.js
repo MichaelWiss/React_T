@@ -20,8 +20,12 @@ Meteor.methods({
 
    	  return `Hello ${name}!`;
    },
-   addNumbers() {
-   	
+   addNumbers(a, b) {
+      if (typeof a !== 'number' || typeof b !== 'number') {
+      	throw new Meteor.Error('invalid-arguments', 'Expecting two numbers.')
+      }
+
+      return a + b;
    }
 });
 
