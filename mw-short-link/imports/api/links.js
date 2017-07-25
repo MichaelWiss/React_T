@@ -11,10 +11,15 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-   'links.insert'() {
+   'links.insert'(url) {
    	 if (!this.userId) {
-   	 	
+   	 	throw new Meteor.Error('not-authorized');
    	 }
+
+   	 Links.insert({
+       url,
+       userId: this.userId
+   	 });
    }
 });
 
