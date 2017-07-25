@@ -11,6 +11,5 @@ Tracker.autorun(() => {
 });
 
 Meteor.startup(() => {
-    Meteor.call('links.insert', 'assdsf jalkjlj');
 	ReactDOM.render(routes, document.getElementById('app'));
 });
