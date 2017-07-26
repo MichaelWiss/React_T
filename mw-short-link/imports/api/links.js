@@ -18,7 +18,6 @@ Meteor.methods({
    	 	throw new Meteor.Error('not-authorized');
    	 }
 
-   	try {
       new SimpleSchema({
      	url: {
            type: String,
@@ -27,9 +26,6 @@ Meteor.methods({
      	}
   	}).validate({ url })
 
-    } catch (e) {
-      throw new Meteor.Error(400, e.message)
-    }
 
    	 Links.insert({
        url,
