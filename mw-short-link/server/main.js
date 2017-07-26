@@ -6,7 +6,5 @@ import '../imports/startup/simple-schema-configuration.js';
 
 
 Meteor.startup(() => {
-	Meteor.call('greetUser', (err, res) => {
-          console.log('Greet User Arguments', err, res);
-	});
+	
 });
