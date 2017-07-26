@@ -1,23 +1,20 @@
-import { Meteor } from 'meteor/meteor';
-import SimpleSchema from 'simpl-schema';
-import { Accounts } from 'meteor/accounts-base';
+import { Meteor } from "meteor/meteor";
 
+import { Accounts } from "meteor/accounts-base";
 
+Accounts.validateNewUser(user => {
+  const email = user.emails[0].address;
 
- Accounts.validateNewUser((user) => {
-  	const email = user.emails[0].address;
-      
-    try {
-      new SimpleSchema({
-     	email: {
-           type: String,
-           regEx: SimpleSchema.RegEx.Email
-     	}
-  	}).validate({ email })
+  try {
+    new SimpleSchema({
+      email: {
+        type: String,
+        regEx: SimpleSchema.RegEx.Email
+      }
+    }).validate({ email });
+  } catch (e) {
+    throw new Meteor.Error(400, e.message);
+  }
 
-    } catch (e) {
-      throw new Meteor.Error(400, e.message)
-    }
-
-     return true;
-  });
+  return true;
+});
