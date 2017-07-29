@@ -7,6 +7,7 @@ import { Accounts } from 'meteor/accounts-base';
  Accounts.validateNewUser((user) => {
   	const email = user.emails[0].address;
       
+    try {
       new SimpleSchema({
      	email: {
            type: String,
@@ -14,6 +15,9 @@ import { Accounts } from 'meteor/accounts-base';
      	}
   	}).validate({ email })
 
+    } catch (e) {
+      throw new Meteor.Error(400, e.message)
+    }
 
      return true;
   });
