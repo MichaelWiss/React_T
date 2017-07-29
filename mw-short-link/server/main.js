@@ -15,7 +15,10 @@ Meteor.startup(() => {
       //set HTTP headers
       res.setHeader('my-custom-success-header', 'Michael was here')
       //set HTTP body
+      // res.write('<h1>This is my middleware</h1>');
       //end HTTP request
+      res.end();
+      
       next();
 	});
 });
