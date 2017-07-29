@@ -7,7 +7,9 @@ import '../imports/startup/simple-schema-configuration.js';
 
 
 Meteor.startup(() => {
-	WebApp.connectHandlers.use(() => {
-      console.log('This is my custom middleware')
+	WebApp.connectHandlers.use((req, res, next) => {
+      console.log('This is my custom middleware');
+      console.log(req.url, req.method);
+      next();
 	});
 });
